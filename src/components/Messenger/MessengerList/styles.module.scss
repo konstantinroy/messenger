@@ -1,0 +1,100 @@
+@import "/src/assets/styles/mixins";
+
+.messengerList {
+  display: grid;
+  grid-template-rows: 7% 85% 8%;
+  width: 100%;
+  height: 100vh;
+  color: var(--grey-color);
+}
+
+.header {
+  @include flex-center-start;
+  background-image: var(--background-color);
+  width: 100%;
+  height: 60px;
+  border-bottom: 1px solid var(--grey-color);
+  color: var(--grey-color);
+  padding: 0 1rem;
+}
+
+.messages {
+  @include flex-center;
+}
+
+.userPhoto {
+  @include flex-center;
+  position: relative;
+  margin-right: 2%;
+  cursor: pointer;
+}
+
+.userPhotoImg {
+  @include flex-center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  border: 1px solid var(--grey-color);
+}
+
+.userPhotoIcon {
+  width: 35px;
+  height: 35px;
+  color: var(--grey-color);
+  border-radius: 50px;
+}
+
+.isOnlineIcon {
+  position: absolute;
+  top: 26px;
+  right: 0;
+  font-size: 0.5rem;
+  color: #0cd385;
+}
+
+.userName {
+  @include flex-column-start-center;
+}
+
+.userNameHeading {
+  color: #fff;
+  font-size: 0.9rem;
+  margin-bottom: 0.1rem;
+  cursor: pointer;
+}
+
+.userNameAdditionalInfo {
+  color: var(--grey-color);
+  font-size: 0.8rem;
+}
+
+.addIcon {
+  margin-right: 3%;
+  svg {
+    font-size: 1.8rem;
+    color: var(--grey-color);
+    cursor: pointer;
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+.messageInput {
+  width: 100%;
+  padding: var(--block-padding);
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--grey-color);
+}
+
+.input {
+  width: 100%;
+  input {
+    width: 100%;
+    color: #fff;
+    &::placeholder {
+      color: var(--grey-color);
+    }
+  }
+}

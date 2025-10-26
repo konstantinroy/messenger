@@ -1,0 +1,191 @@
+@import "/src/assets/styles/mixins";
+
+.userPage {
+  @include flex-column-center;
+  width: 100%;
+  color: var(--grey-color);
+  // height: 40vh;
+  border-bottom: 1px solid var(--grey-color);
+}
+
+.header {
+  @include flex-center;
+  background-image: var(--background-color);
+  width: 100%;
+  height: 60px;
+  border-bottom: 1px solid var(--grey-color);
+  color: var(--grey-color);
+}
+
+.userInfoBlock {
+  @include flex-column-center;
+  width: 100%;
+  padding: 1rem 4rem;
+}
+
+.userPhoto {
+  @include flex-center;
+  position: relative;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.userPhotoImg {
+  @include flex-center;
+  width: 100%;
+  height: 100%;
+  // border: 2px solid var(--grey-color);
+  border-radius: 50px;
+}
+
+.userPhotoIcon {
+  width: 90px;
+  height: 90px;
+  color: var(--grey-color);
+  border-radius: 50px;
+}
+
+.userPhotoPopup {
+  @include flex-center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0, 0.8);
+  z-index: 5;
+  img {
+    width: 45%;
+  }
+}
+
+.userPhotoPopupClose {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 1.5rem;
+  color: var(--grey-color);
+  margin: 1%;
+  cursor: pointer;
+  &:hover {
+    color: white;
+  }
+}
+
+.isOnlineIcon {
+  position: absolute;
+  top: 71px;
+  right: 6px;
+  font-size: 0.9rem;
+  color: #0cd385;
+}
+
+.userName {
+  @include flex-column-center;
+}
+
+.userNameHeading {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.userNameAdditionalInfo {
+  color: var(--grey-color);
+  font-size: 0.8rem;
+}
+
+.actionsBlock {
+  @include flex-center;
+  margin-bottom: 1rem;
+}
+
+.actionBlock {
+  @include flex-column-center;
+  background-image: var(--background-color);
+  width: 110px;
+  height: 70px;
+  background-color: violet;
+  margin: 0 2%;
+  border-radius: 10px;
+  cursor: pointer;
+  svg {
+    font-size: 1.4rem;
+    margin-bottom: 4%;
+    color: var(--grey-color);
+  }
+  p {
+    font-size: 0.8rem;
+  }
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
+
+.userFullInfo {
+  background-image: var(--background-color);
+  width: 60%;
+  padding: 0 0.8rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+}
+
+.userFullInfoContainer {
+  @include flex-center-between;
+  position: relative;
+  padding-bottom: 0.2rem;
+  &:first-child {
+    border-bottom: 1px solid var(--grey-color);
+  }
+  // width: 80%;
+}
+
+.userCopyInfoBtn {
+  cursor: pointer;
+  &:hover {
+    color: white;
+  }
+}
+
+.bubble {
+  position: relative;
+  width: 280px;
+  height: 80px;
+  padding: 5px;
+  color: #32557f;
+  border-radius: 5px;
+  border: 3px solid #32557f;
+}
+
+.bubble::before,
+.bubble::after {
+  content: '\0020';
+  display: block;
+  position: absolute;
+  top: -15px;
+  left: 15px;
+  z-index: 5;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border: solid 15px transparent;
+  border-top: 0;
+  border-bottom-color: #7eb4e2;
+}
+
+.bubble::before {
+  top: -18px;
+  z-index: 1;
+  border-bottom-color: #32557f;
+}
+
+.userInfoList {
+  margin-top: 0.6rem;
+  margin-bottom: 0.4rem;
+  h3 {
+    font-size: 0.9rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+}

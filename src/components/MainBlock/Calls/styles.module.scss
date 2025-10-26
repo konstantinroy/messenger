@@ -1,0 +1,45 @@
+@import '/src/assets/styles/mixins';
+
+.calls {
+  color: var(--grey-color);
+  height: 87vh;
+  display: grid;
+  grid-template-rows: 10% 10% 80%;
+}
+
+.callsHeading {
+  @include flex-center-between;
+  width: 100%;
+  padding: 1rem;
+  border-bottom: 1px solid var(--grey-color);
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.callsHeadingText {
+  font-size: 1.4rem;
+}
+
+.filterButtons {
+  @include flex-center-start;
+  padding: 1rem;
+  border-bottom: 1px solid var(--grey-color);
+}
+
+.filterButton {
+  font-size: 1.2rem;
+  padding-bottom: 2%;
+  margin-right: 5%;
+  cursor: pointer;
+}
+
+.filterAllButtonActive {
+  color: white;
+  border-bottom: 2px solid white;
+}
+
+.filterMissedButtonActive {
+  color: white;
+  border-bottom: 2px solid white;
+}

@@ -1,0 +1,33 @@
+.sidebarButton {
+  z-index: 0;
+  position: relative;
+    svg {
+    font-size: 2rem;
+    color: var(--grey-color);
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+.sidebarButtonActive {
+    svg {
+    color: white;
+    }
+  &::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 45px;
+    height: 45px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    background-color: var(--dialog-block-hover);
+    filter: brightness(90%);
+    z-index: -1;
+  }
+  &::before {
+    filter: blur(1);
+  }
+}
