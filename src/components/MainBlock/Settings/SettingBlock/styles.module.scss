@@ -1,0 +1,47 @@
+.settingBlock {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  padding: 1rem;
+}
+
+.settingBlockForm {
+  display: flex;
+  padding: 1rem;
+}
+
+.settingName {
+  color: var(--grey-color);
+}
+
+.settingValue {
+  color: white;
+  text-align: end;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.formBlock {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 80% 20%;
+  input {
+    width: 100%;
+    color: #fff;
+    &::placeholder {
+      color: var(--grey-color);
+    }
+  }
+}
+
+.settingCheckIcon {
+  text-align: end;
+  svg {
+    font-size: 1.3rem;
+    color: var(--grey-color);
+    cursor: pointer;
+  }
+  svg:hover {
+    color: white;
+    cursor: pointer;
+  }
+}

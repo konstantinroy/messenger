@@ -1,0 +1,36 @@
+body {
+  --background-color: linear-gradient(315deg, #b3cdd1 0%, #9fa4c4 74%);
+  --text-color: #898989;
+  --grey-color: #ededed;
+  --border-color: #c7c7c7;
+  --dialog-block-hover: #9ba0bc;
+  --dialog-block-opened: linear-gradient(315deg, #5de6de 0%, #b58ecc 74%);
+//   --dialog-block-active-hover: linear-gradient(315deg, #57d8cf 0%, #9878ab 74%);
+  --messager-block-empty-text: #a8acc5;
+}
+
+body.dark {
+  --background-color: linear-gradient(250deg, #2d3436 0%, #000000 74%);
+  --text-color: #d2d2d2;
+  --grey-color: #757575;
+  --dialog-block-hover: #161616;
+  --dialog-block-opened: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
+//   --dialog-block-active-hover: linear-gradient(315deg, #604363 0%, #082132 74%);
+  --messager-block-empty-text: #2d3436;
+  // animation:bganimation 1s infinite;
+}
+
+@keyframes bganimation
+    {
+        0%{
+            transform: rotate(0);
+        }
+         
+        50%{
+            transform: rotate(45deg);
+        }
+         
+        100%{
+            transform: rotate(0);
+        }
+    }

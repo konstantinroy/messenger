@@ -1,0 +1,27 @@
+@import "/src/assets/styles/mixins";
+
+.messengerBlock {
+  height: 100vh;
+}
+
+.dialog {
+  @include flex-center;
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+
+.emptyMessenger {
+  @include flex-center;
+  width: 100%;
+  height: 100vh;
+  font-size: 1.1rem;
+}
+
+.emptyMessengerText {
+  background-color: var(--dialog-block-hover);
+  color: #fff;
+  padding: 0.5rem;
+  // border: 1px solid #fff;
+  border-radius: 30px;
+}

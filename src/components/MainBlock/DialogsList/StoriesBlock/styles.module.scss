@@ -1,0 +1,78 @@
+@import '/src/assets/styles/mixins';
+
+.storiesBlock {
+  @include flex-center-between;
+  padding: var(--block-padding);
+  border-bottom: 1px solid var(--grey-color);
+}
+
+.userInfoBlock {
+  width: 100%;
+  display: flex;
+  padding: 0.5rem 0;
+}
+
+.userPhoto {
+  @include flex-column-center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.userPhotoImg {
+  @include flex-center;
+  width: 51px;
+  height: 51px;
+  border-radius: 50px;
+  margin-bottom: 0.8rem;
+  overflow: hidden;
+  position: relative;
+  z-index: 5;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 51px;
+    height: 51px;
+    background: linear-gradient(to right, #ee6ef5, #57b9ff);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    animation: 3s spin linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.userNameHeading {
+  color: #fff;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.addStorie {
+  @include flex-center;
+  font-size: 1.2rem;
+  color: white;
+  transition: 0.2s all;
+  &:hover {
+    font-size: 1.4rem;
+  }
+}
+
+.userPhotoIcon {
+  background-image: var(--background-color);
+  width: 45px;
+  height: 45px;
+  color: var(--grey-color);
+  border-radius: 50px;
+}

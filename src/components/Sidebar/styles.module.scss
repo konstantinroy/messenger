@@ -1,0 +1,40 @@
+@import '/src/assets/styles/mixins';
+
+.sidebar {
+  padding: 2rem 0.4rem;
+  height: 100vh;
+  // width: 6rem;
+  display: grid;
+  grid-template-rows: 31% 33% 36%;
+  border-right: 1px solid var(--border-color);
+  svg {
+    cursor: pointer;
+  }
+}
+
+.sidebarLogo {
+  text-align: center;
+  color: var(--grey-color);
+  font-size: 3.5rem;
+}
+
+.sidebarActions {
+  @include flex-column-center;
+  svg {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.sidebarThemeIcon {
+  @include flex-end-center;
+}
+
+.sidebarThemeIcon {
+  svg {
+    font-size: 2rem;
+    color: var(--grey-color);
+    &:hover {
+      color: #fff;
+    }
+  }
+}
