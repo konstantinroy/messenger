@@ -1,9 +1,10 @@
-import { FaCircle, FaPhone, FaCopy } from 'react-icons/fa'
+import { FaCircle, FaPhone } from 'react-icons/fa'
 import { IoIosChatbubbles, IoMdClose } from 'react-icons/io'
 import { BsThreeDots } from 'react-icons/bs'
 import { useState } from 'react'
 import { useMessenger } from 'src/providers/useMessenger'
 import Image from 'next/image'
+import CopyBtn from './CopyBtn'
 
 import styles from './styles.module.scss'
 
@@ -26,10 +27,6 @@ const UserPage: React.FC = () => {
 
   const closeUserPhoto = () => {
     setIsPopupPhoto(false)
-  }
-
-  const copyTextToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text)
   }
 
   if (viewedUserId === null) {
@@ -97,21 +94,24 @@ const UserPage: React.FC = () => {
             <h3>User login</h3>
             <p>{userLogin}</p>
           </div>
-          <div className={styles.userCopyInfoBtn}>
+          <CopyBtn id="login" userLogin={userLogin} />
+
+          {/* <div className={styles.userCopyInfoBtn}>
             <FaCopy onClick={() => copyTextToClipboard(userLogin)} />
           </div>
           <div className={styles.bubble}>
             {'login' + ' copied'}
-          </div>
+          </div> */}
         </div>
         <div className={styles.userFullInfoContainer}>
           <div className={styles.userInfoList}>
             <h3>User phone</h3>
             <p>8-977-777-77-77</p>
           </div>
-          <div className={styles.userCopyInfoBtn}>
+          <CopyBtn id="number" userNumber={userNumber} />
+          {/* <div className={styles.userCopyInfoBtn}>
             <FaCopy onClick={() => copyTextToClipboard(userNumber)} />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
