@@ -4,7 +4,8 @@ body {
   --grey-color: #ededed;
   --border-color: #c7c7c7;
   --dialog-block-hover: #9ba0bc;
-  --dialog-block-opened: linear-gradient(315deg, #5de6de 0%, #b58ecc 74%);
+  --dialog-block-opened: linear-gradient(315deg, #b58ecc 40%, #5de6de 100%);
+  --before-message-bubble: #b58ecc;
 //   --dialog-block-active-hover: linear-gradient(315deg, #57d8cf 0%, #9878ab 74%);
   --messager-block-empty-text: #a8acc5;
 }
@@ -14,7 +15,8 @@ body.dark {
   --text-color: #d2d2d2;
   --grey-color: #757575;
   --dialog-block-hover: #161616;
-  --dialog-block-opened: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
+  --dialog-block-opened: linear-gradient(315deg, #0d324d 40%, #7f5a83 100%);
+  --before-message-bubble: #0d324d;
 //   --dialog-block-active-hover: linear-gradient(315deg, #604363 0%, #082132 74%);
   --messager-block-empty-text: #2d3436;
   // animation:bganimation 1s infinite;
