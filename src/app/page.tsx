@@ -1,3 +1,5 @@
+'use client'
+
 import Sidebar from '../components/Sidebar/index'
 import MainBlock from '../components/MainBlock/index'
 import Messanger from '../components/Messenger'

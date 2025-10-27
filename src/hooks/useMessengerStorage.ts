@@ -4,11 +4,14 @@ import { SidebarButtons } from '@/src/info/sidebar-buttons-array'
 import { ISidebarButtons } from '@/src/info/sidebar-buttons-array'
 import { Humans } from '@/src/info/humans-array'
 import { HumansTypes } from '@/src/info/humans-array'
+import { MessagesList } from '@/src/info/messages-list'
+import { IMessagesList } from '@/src/info/messages-list'
 
 export const useMessengerStorage = () => {
+  const [messagesList, setMessagesList] = useState<IMessagesList[]>(MessagesList)
   const [humansArray, setHumansArray] = useState<HumansTypes[]>(Humans)
-  const [sidebarButtons, setSidebarButtons] =
-    useState<ISidebarButtons[]>(SidebarButtons)
+
+  const [sidebarButtons, setSidebarButtons] = useState<ISidebarButtons[]>(SidebarButtons)
 
   const [activeButton, setActiveButton] = useState<ISidebarButtons | null>(
     null,
@@ -41,7 +44,7 @@ export const useMessengerStorage = () => {
     setViewedUserId(null)
     setViewedDialogId(id)
   }
-  
+
   useEffect(() => {
     const foundButton = sidebarButtons.find((button) => button.active === true)
     setActiveButton(foundButton || null)
@@ -49,6 +52,8 @@ export const useMessengerStorage = () => {
   // console.log(viewedId)
 
   return {
+    messagesList,
+    setMessagesList,
     sidebarButtons,
     setSidebarButtons,
     sidebarActionsHandler,
