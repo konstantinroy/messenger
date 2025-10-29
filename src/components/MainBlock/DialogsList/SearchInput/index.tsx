@@ -8,7 +8,7 @@ import styles from './styles.module.scss'
 
 const SearchInput = () => {
   const [searchTerm, setSearchTerm] = useState<string>('')
-  const { humansArray, setHumansArray } = useMessenger()
+  const { setHumansArray } = useMessenger()
 
   const dialogsFilter = (
     searchText: string,

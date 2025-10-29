@@ -1020,6 +1020,13 @@
   height: 100vh;
   border-right: 1px solid var(--border-color);
 }
+
+@media (max-width: 480px) {
+  .styles_mainBlock__SibbV {
+    height: 90vh;
+    width: 100%;
+  }
+}
 /*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[7].use[5]!./src/components/Messenger/UserPage/styles.module.scss ***!
   \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
@@ -1254,20 +1261,20 @@
 
 .styles_messageBubble__OQ5Aq {
   border-radius: 20px;
-  padding: 16px 20px;
+  padding: 0.8rem;
   margin: 3px 0;
   display: flex;
   align-items: center;
   max-width: 40%;
   min-width: 30%;
   word-break: break-word;
-  font-family: Arial, sans-serif;
   color: white;
   position: relative;
 }
 .styles_messageBubble__OQ5Aq p {
   margin: 0;
   flex: 1 1;
+  font-size: 0.8rem;
 }
 
 .styles_messageBubbleSent__ggtpC {
@@ -1330,6 +1337,56 @@
     max-width: 90%;
   }
 }
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[7].use[5]!./src/components/Messenger/MessengerList/HeaderActions/styles.module.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.styles_headerActions__SUSFl {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: var(--block-padding);
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+.styles_headerActions__SUSFl svg {
+  font-size: 1.5rem;
+  color: var(--grey-color);
+  cursor: pointer;
+}
+.styles_headerActions__SUSFl svg:hover {
+  color: white;
+}
+
+.styles_headerActionsIcons__cmHQL {
+  display: flex;
+  margin: 0;
+}
+
+.styles_phoneIcon__L3ZD_ {
+  margin-right: 2rem;
+}
+
+.styles_searchIcon__QTGiS {
+  margin-right: 1.5rem;
+}
+
+.styles_input__0geJX {
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 50%;
+  border-radius: 10px;
+  margin-right: 0.8rem;
+}
+.styles_input__0geJX input {
+  width: 100%;
+  color: #fff;
+  padding: 0.6rem;
+}
+.styles_input__0geJX input::placeholder {
+  color: var(--grey-color);
+}
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[7].use[5]!./src/components/Messenger/MessengerList/styles.module.scss ***!
   \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
@@ -1344,7 +1401,7 @@
 .styles_header__WKZZR {
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: space-between;
   background-image: var(--background-color);
   width: 100%;
   height: 60px;
@@ -1354,11 +1411,25 @@
   z-index: 1;
 }
 
+.styles_userBlock__tsquv {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 30%;
+}
+
+.styles_headerActions__fXo6k {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  width: 70%;
+  height: 100%;
+}
+
 .styles_messagesContainer__38b3v {
   display: flex;
   flex-direction: column;
   align-items: end;
-  height: 650px;
   padding: 1rem 0.5rem;
   overflow-y: scroll;
 }
@@ -1368,7 +1439,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  margin-right: 2%;
+  margin-right: 5%;
   cursor: pointer;
 }
 
@@ -1451,6 +1522,7 @@
   \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 .styles_messengerBlock__QphhB {
   height: 100vh;
+  background-image: var(--background-color);
 }
 
 .styles_dialog__vjoAV {
@@ -1477,6 +1549,33 @@
   padding: 0.5rem;
   border-radius: 30px;
 }
+
+@media (max-width: 1024px) {
+  .styles_messengerBlockActive__y1Gvk {
+    width: 65%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-left: 1px solid var(--grey-color);
+    z-index: 10;
+  }
+}
+@media (max-width: 960px) {
+  .styles_messengerBlockActive__y1Gvk {
+    width: 75%;
+  }
+}
+@media (max-width: 768px) {
+  .styles_messengerBlockActive__y1Gvk {
+    width: 80%;
+  }
+}
+@media (max-width: 480px) {
+  .styles_messengerBlockActive__y1Gvk {
+    width: 100%;
+  }
+}
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[7].use[5]!./src/app/page.module.scss ***!
   \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
@@ -1484,4 +1583,28 @@
   display: grid;
   grid-template-columns: 10% 28% 62%;
   overflow: hidden;
+}
+
+@media (max-width: 1200px) {
+  .page_page__KdIv3 {
+    grid-template-columns: 10% 35% 55%;
+  }
+}
+@media (max-width: 960px) {
+  .page_page__KdIv3 {
+    grid-template-columns: 10% 40% 50%;
+  }
+}
+@media (max-width: 768px) {
+  .page_page__KdIv3 {
+    grid-template-columns: 10% 45% 45%;
+  }
+}
+@media (max-width: 480px) {
+  .page_page__KdIv3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+  }
 }

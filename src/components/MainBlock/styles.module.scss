@@ -1,5 +1,12 @@
 .mainBlock {
-    // width: 20rem;
-    height: 100vh;
-    border-right: 1px solid var(--border-color);
+  // width: 20rem;
+  height: 100vh;
+  border-right: 1px solid var(--border-color);
+}
+
+@media (max-width: 480px) {
+  .mainBlock {
+    height: 90vh;
+    width: 100%;
+  }
 }

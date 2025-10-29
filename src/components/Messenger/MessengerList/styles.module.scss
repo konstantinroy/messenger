@@ -9,7 +9,7 @@
 }
 
 .header {
-  @include flex-center-start;
+  @include flex-center-between;
   background-image: var(--background-color);
   width: 100%;
   height: 60px;
@@ -19,9 +19,20 @@
   z-index: 1;
 }
 
+.userBlock {
+  @include flex-center-start;
+  width: 30%;
+}
+
+.headerActions {
+  @include flex-center-end;
+  width: 70%;
+  height: 100%;
+}
+
 .messagesContainer {
   @include flex-column-end;
-  height: 650px;
+  // height: 650px;
   padding: 1rem 0.5rem;
   overflow-y: scroll;
 }
@@ -29,7 +40,7 @@
 .userPhoto {
   @include flex-center;
   position: relative;
-  margin-right: 2%;
+  margin-right: 5%;
   cursor: pointer;
 }
 

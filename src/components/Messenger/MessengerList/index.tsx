@@ -7,6 +7,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useMessenger } from '@/src/providers/useMessenger'
 import MessageBubble from './MessageBubble'
 import { IMessagesList } from '@/src/info/messages-list'
+import HeaderActions from './HeaderActions'
 import styles from './styles.module.scss'
 
 const MessengerList: React.FC = () => {
@@ -28,7 +29,7 @@ const MessengerList: React.FC = () => {
 
   useEffect(() => {
     if (messagesContainerRef.current) {
-      messagesContainerRef.current.scrollTop = 
+      messagesContainerRef.current.scrollTop =
         messagesContainerRef.current.scrollHeight
     }
   }, [messagesList])
@@ -39,44 +40,44 @@ const MessengerList: React.FC = () => {
 
   return (
     <div className={styles.messengerList}>
-      {/* {'Dialog with ' + dialogUserName} */}
       <div className={styles.header}>
-        <div
-          className={styles.userPhoto}
-          onClick={() => openUserPageHandler(userId)}
-        >
-          <div className={styles.userPhotoImg}>
-            <Image
-              className={styles.userPhotoIcon}
-              src={userPhoto}
-              alt="avatar"
-            />
+        <div className={styles.userBlock}>
+          <div
+            className={styles.userPhoto}
+            onClick={() => openUserPageHandler(userId)}
+          >
+            <div className={styles.userPhotoImg}>
+              <Image
+                className={styles.userPhotoIcon}
+                src={userPhoto}
+                alt="avatar"
+              />
+            </div>
+
+            {isOnline && (
+              <div className={styles.isOnlineIcon}>
+                <FaCircle />
+              </div>
+            )}
           </div>
 
-          {isOnline && (
-            <div className={styles.isOnlineIcon}>
-              <FaCircle />
-            </div>
-          )}
+          <div
+            className={styles.userName}
+            onClick={() => openUserPageHandler(userId)}
+          >
+            <h2 className={styles.userNameHeading}>{userName}</h2>
+            <h3 className={styles.userNameAdditionalInfo}>
+              {isOnline ? 'Online' : 'Was online...'}
+            </h3>
+          </div>
         </div>
-
-        <div
-          className={styles.userName}
-          onClick={() => openUserPageHandler(userId)}
-        >
-          <h2 className={styles.userNameHeading}>{userName}</h2>
-          <h3 className={styles.userNameAdditionalInfo}>
-            {isOnline ? 'Online' : 'Was online...'}
-          </h3>
+        <div className={styles.headerActions}>
+          <HeaderActions />
         </div>
-        {/* <button onClick={scrollToBottom}>Click</button> */}
       </div>
 
       <>
-        <div
-          className={styles.messagesContainer}
-          ref={messagesContainerRef}
-        >
+        <div className={styles.messagesContainer} ref={messagesContainerRef}>
           {messagesList.map((message: IMessagesList) => (
             <MessageBubble
               key={message.id}

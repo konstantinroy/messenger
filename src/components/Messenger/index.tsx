@@ -9,7 +9,7 @@ const Messenger = () => {
   const title = activeButton?.title === 'Сообщения'
 
   return (
-    <div className={styles.messengerBlock}>
+    <div className={`${styles.messengerBlock} ${isDialogOpen && styles.messengerBlockActive}`}>
       <UserPage />
       <MessengerList />
 

@@ -2,6 +2,7 @@
 
 .messengerBlock {
   height: 100vh;
+  background-image: var(--background-color);
 }
 
 .dialog {
@@ -24,4 +25,34 @@
   padding: 0.5rem;
   // border: 1px solid #fff;
   border-radius: 30px;
+}
+
+@media (max-width: 1024px) {
+  .messengerBlockActive {
+    width: 65%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-left: 1px solid var(--grey-color);
+    z-index: 10;
+  }
+}
+
+@media (max-width: 960px) {
+  .messengerBlockActive {
+    width: 75%;
+  }
+}
+
+@media (max-width: 768px) {
+  .messengerBlockActive {
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .messengerBlockActive {
+    width: 100%;
+  }
 }

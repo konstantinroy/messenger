@@ -8,10 +8,12 @@ import { MessagesList } from '@/src/info/messages-list'
 import { IMessagesList } from '@/src/info/messages-list'
 
 export const useMessengerStorage = () => {
-  const [messagesList, setMessagesList] = useState<IMessagesList[]>(MessagesList)
+  const [messagesList, setMessagesList] =
+    useState<IMessagesList[]>(MessagesList)
   const [humansArray, setHumansArray] = useState<HumansTypes[]>(Humans)
 
-  const [sidebarButtons, setSidebarButtons] = useState<ISidebarButtons[]>(SidebarButtons)
+  const [sidebarButtons, setSidebarButtons] =
+    useState<ISidebarButtons[]>(SidebarButtons)
 
   const [activeButton, setActiveButton] = useState<ISidebarButtons | null>(
     null,
@@ -24,6 +26,9 @@ export const useMessengerStorage = () => {
   const sidebarActionsHandler = useCallback((id: string) => {
     setSidebarButtons((prevState) =>
       prevState.map((button) => {
+        if (button.id === id && button.title === 'Сообщения') {
+          setIsDialogOpen(false)
+        }
         return {
           ...button,
           active: button.id === id ? true : false,
