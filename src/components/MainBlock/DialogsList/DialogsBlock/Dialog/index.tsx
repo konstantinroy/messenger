@@ -20,7 +20,7 @@ const Dialog: React.FC<HumansTypes> = ({
   // const dialogBlockActiveStyle = newMessageQty > 0 && styles.dialogBlockActive
 
   const truncateString = (str: string, maxLenght: number) => {
-    if (str.lenght <= maxLenght) {
+    if (str.length <= maxLenght) {
       return str
     }
     return str.slice(0, maxLenght) + '...' 
