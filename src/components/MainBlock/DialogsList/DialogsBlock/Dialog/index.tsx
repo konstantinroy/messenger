@@ -1,6 +1,6 @@
-import Image from 'next/image'
 import { FaUser, FaCircle } from 'react-icons/fa'
 import { BsCheckAll } from 'react-icons/bs'
+import Image from 'next/image'
 import { useMessenger } from '@/src/providers/useMessenger'
 import { HumansTypes } from '@/src/info/humans-array'
 
@@ -11,13 +11,21 @@ const Dialog: React.FC<HumansTypes> = ({
   name,
   avatar,
   secondName,
-  status,
   isOnline,
   timeOfLastMessage,
   newMessageQty,
 }) => {
-  const { openDialogHandler, viewedDialogId, isDialogOpen } = useMessenger()
+  const { messagesList, openDialogHandler, viewedDialogId, isDialogOpen } = useMessenger()
+  const lastMessage = messagesList.slice(-1)[0].message
   // const dialogBlockActiveStyle = newMessageQty > 0 && styles.dialogBlockActive
+
+  const truncateString = (str: string, maxLenght: number) => {
+    if (str.lenght <= maxLenght) {
+      return str
+    }
+    return str.slice(0, maxLenght) + '...' 
+  }
+  
   const dialogBlockActiveStyle =
     (id === viewedDialogId && isDialogOpen && styles.dialogOpened) ||
     (newMessageQty > 0 && styles.dialogBlockActive)
@@ -52,7 +60,9 @@ const Dialog: React.FC<HumansTypes> = ({
           <h2 className={styles.userNameHeading}>{`${
             name + ' ' + secondName
           }`}</h2>
-          <h3 className={styles.userNameAdditionalInfo}>{status}</h3>
+          <h3 className={styles.userNameAdditionalInfo}>
+            {truncateString(lastMessage, 45)}
+          </h3>
         </div>
       </div>
       <div className={styles.messageInfo}>
