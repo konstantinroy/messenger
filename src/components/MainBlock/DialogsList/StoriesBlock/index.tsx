@@ -1,11 +1,13 @@
 import { FaPlus, FaUser } from 'react-icons/fa'
 import Image from 'next/image'
-import { Humans } from '@/src/info/humans-array'
+import { useMessenger } from 'src/providers/useMessenger'
 import { HumansTypes } from '@/src/info/humans-array'
+
 import styles from './styles.module.scss'
 
 const StoriesBlock = () => {
-  const storiesArray = [...Humans.slice(0, 3)]
+  const { humansArray } = useMessenger()
+  const storiesArray = [...humansArray.slice(0, 3)]
 
   return (
     <div className={styles.storiesBlock}>

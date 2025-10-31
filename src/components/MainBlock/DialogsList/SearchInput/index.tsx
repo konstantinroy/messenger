@@ -7,7 +7,9 @@ import { HumansTypes } from '@/src/info/humans-array'
 import styles from './styles.module.scss'
 
 const SearchInput = () => {
+  // Текст поля ввода
   const [searchTerm, setSearchTerm] = useState<string>('')
+
   const { setHumansArray } = useMessenger()
 
   const dialogsFilter = (

@@ -5,9 +5,9 @@ import CallsList from './CallsList'
 import styles from './styles.module.scss'
 
 export interface IFilterButtons {
-  id: string;
-  text: string;
-  active: boolean;
+  id: string
+  text: string
+  active: boolean
 }
 
 const FILTER_BUTTONS = [
@@ -25,12 +25,16 @@ const FILTER_BUTTONS = [
 
 const Calls: React.FC = () => {
   const { activeButton } = useMessenger()
+
+  // Состояние переключения кнопок
   const [isMissedButton, setIsMissedButton] = useState<boolean>(false)
 
+  // Функция переключения кнопок
   const missedButtonHandler = useCallback((id: string) => {
     return setIsMissedButton(id === 'missed' ? true : false)
   }, [])
 
+  // Дополнительные стили активной кнопки
   const filterButtonStyles = useCallback(
     (id: string) => {
       if (isMissedButton && id === 'missed') {
@@ -49,30 +53,29 @@ const Calls: React.FC = () => {
 
   return (
     <>
-      {activeButton.title === 'Звонки' && <div className={styles.calls}>
-        <div className={styles.callsHeading}>
-          <h2 className={styles.callsHeadingText}>Calls</h2>
-        </div>
+      {activeButton.title === 'Звонки' && (
+        <div className={styles.calls}>
+          <div className={styles.callsHeading}>
+            <h2 className={styles.callsHeadingText}>Calls</h2>
+          </div>
 
-        <div className={styles.filterButtons}>
-          {FILTER_BUTTONS.map((button: IFilterButtons) => (
-            <div
-              key={button.id}
-              className={`${styles.filterButton}
+          <div className={styles.filterButtons}>
+            {FILTER_BUTTONS.map((button: IFilterButtons) => (
+              <div
+                key={button.id}
+                className={`${styles.filterButton}
               ${filterButtonStyles(button.id)}`}
-              onClick={() => missedButtonHandler(button.id)}
-            >
-              {button.text}
-            </div>
-          ))}
-        </div>
+                onClick={() => missedButtonHandler(button.id)}
+              >
+                {button.text}
+              </div>
+            ))}
+          </div>
 
-        <CallsList
-          isMissedButton={isMissedButton}
-        />
-      </div>}
+          <CallsList isMissedButton={isMissedButton} />
+        </div>
+      )}
     </>
-    
   )
 }
 

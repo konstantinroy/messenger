@@ -17,9 +17,11 @@ const Dialog: React.FC<HumansTypes> = ({
 }) => {
   const { messagesList, openDialogHandler, viewedDialogId, isDialogOpen } =
     useMessenger()
-  const lastMessage = messagesList.slice(-1)[0].message
-  // const dialogBlockActiveStyle = newMessageQty > 0 && styles.dialogBlockActive
 
+  // Последнее сообщение от пользователя
+  const lastMessage = messagesList.slice(-1)[0].message
+
+  // Функция ограничения количества символов
   const truncateString = (str: string, maxLenght: number) => {
     if (str.length <= maxLenght) {
       return str
@@ -27,6 +29,7 @@ const Dialog: React.FC<HumansTypes> = ({
     return str.slice(0, maxLenght) + '...'
   }
 
+  // Стили активного диалога
   const dialogBlockActiveStyle =
     (id === viewedDialogId && isDialogOpen && styles.dialogOpened) ||
     (newMessageQty > 0 && styles.dialogBlockActive)

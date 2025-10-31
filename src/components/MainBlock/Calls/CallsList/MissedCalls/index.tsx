@@ -1,5 +1,4 @@
 import { FaUser, FaPhoneVolume } from 'react-icons/fa'
-
 import Image from 'next/image'
 import { HumansTypes } from '@/src/info/humans-array'
 import { useMessenger } from '@/src/providers/useMessenger'
@@ -7,13 +6,16 @@ import { useMessenger } from '@/src/providers/useMessenger'
 import styles from './styles.module.scss'
 
 interface IisMissedButton {
-    isMissedButton: boolean;
+  isMissedButton: boolean
 }
 
 const MissedCalls: React.FC<IisMissedButton> = ({ isMissedButton }) => {
   const { humansArray } = useMessenger()
+
+  // Стили для подсвечивания красным имени пользователя от пропущенного звонка
   const userNameHeadingMissed = `${styles.userNameHeading}
                       ${isMissedButton ? styles.userNameHeadingMissed : ''}`
+
   return (
     <>
       {isMissedButton &&

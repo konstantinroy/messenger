@@ -1,6 +1,7 @@
 import { FaCheck } from 'react-icons/fa'
 import { Dispatch, SetStateAction, useState } from 'react'
 import { IUserInfo } from 'src/info/user-info-object'
+
 import styles from './styles.module.scss'
 
 interface Props {
@@ -46,6 +47,7 @@ const SettingBlock: React.FC<Props> = ({
     }
   }
 
+  // Стили блока информации
   const settingBlockStyles = `${
     isEditing ? styles.settingBlockForm : styles.settingBlock
   }`

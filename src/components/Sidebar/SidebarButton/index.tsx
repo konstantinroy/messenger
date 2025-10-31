@@ -1,5 +1,6 @@
 import { ISidebarButtons } from '../../../info/sidebar-buttons-array'
 import { useMessenger } from 'src/providers/useMessenger'
+
 import styles from './styles.module.scss'
 
 const SidebarButton: React.FC<ISidebarButtons> = ({
@@ -9,6 +10,8 @@ const SidebarButton: React.FC<ISidebarButtons> = ({
   active,
 }) => {
   const { sidebarActionsHandler } = useMessenger()
+
+  // Дополнительные стили для кнопки сайдбара
   const sidebarActiveButton = active && styles.sidebarButtonActive
 
   return (

@@ -3,12 +3,15 @@ import { useState } from 'react'
 import SettingBlock from './SettingBlock'
 import { USER_INFO_OBJECT } from 'src/info/user-info-object'
 import { IUserInfo } from 'src/info/user-info-object'
-import styles from './styles.module.scss'
 
+import styles from './styles.module.scss'
 
 const Settings: React.FC = () => {
   const { activeButton } = useMessenger()
+
+  // Информация пользователя аккаунта
   const [userInfo, setUserInfo] = useState<IUserInfo>(USER_INFO_OBJECT)
+  // Ключ изменяемого поля ввода
   const [currentEditingKey, setCurrentEditingKey] = useState<
     keyof IUserInfo | null
   >(null)
@@ -37,12 +40,10 @@ const Settings: React.FC = () => {
                 />
               )
             }
-            
           })}
         </div>
       )}
     </>
-    
   )
 }
 

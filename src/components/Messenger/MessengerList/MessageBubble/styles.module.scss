@@ -1,4 +1,4 @@
-@import "/src/assets/styles/mixins";
+@import '/src/assets/styles/mixins';
 
 .messageBlock {
 }
@@ -38,7 +38,7 @@
 .messageBubbleSent {
   background-image: var(--dialog-block-opened);
   &::before {
-    content: "";
+    content: '';
     // background-color: #5de6de;
     position: absolute;
     right: -17px;
@@ -55,7 +55,7 @@
   background-color: var(--dialog-block-hover);
   // box-shadow: 0 1px 7px var(--grey-color); // Новое
   &::before {
-    content: "";
+    content: '';
     // background-color: var(--dialog-block-hover);
     position: absolute;
     left: -9px;
@@ -76,6 +76,7 @@
   margin-left: 16px;
   font-size: 14px;
   opacity: 0.8;
+  font-size: 0.7rem;
 }
 
 .timestampLongText {

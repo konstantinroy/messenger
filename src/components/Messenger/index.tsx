@@ -1,7 +1,9 @@
 'use client'
+
 import { useMessenger } from '@/src/providers/useMessenger'
 import UserPage from './UserPage'
 import MessengerList from './MessengerList'
+
 import styles from './styles.module.scss'
 
 const Messenger = () => {
@@ -9,14 +11,18 @@ const Messenger = () => {
   const title = activeButton?.title === 'Сообщения'
 
   return (
-    <div className={`${styles.messengerBlock} ${isDialogOpen && styles.messengerBlockActive}`}>
+    <div
+      className={`${styles.messengerBlock} ${
+        isDialogOpen && styles.messengerBlockActive
+      }`}
+    >
       <UserPage />
       <MessengerList />
 
       {title && !isDialogOpen && (
         <div className={styles.emptyMessenger}>
           <p className={styles.emptyMessengerText}>
-              Select a dialog from the list
+            Select a dialog from the list
           </p>
         </div>
       )}

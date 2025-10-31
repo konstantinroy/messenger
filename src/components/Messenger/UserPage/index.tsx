@@ -9,22 +9,29 @@ import CopyBtn from './CopyBtn'
 import styles from './styles.module.scss'
 
 const UserPage: React.FC = () => {
+  // Состояние попапа открытия фото пользователя
   const [isPopupPhoto, setIsPopupPhoto] = useState(false)
+
   const { humansArray, viewedUserId, openDialogHandler } = useMessenger()
+
+  // Просматриваемый пользователь
   const viewedUser = humansArray.find((user) => user.id === viewedUserId)
 
+  // Информация о пользователе
   const userId = viewedUser?.id || 'user'
-  const isOnline = viewedUser?.isOnline
-  const userPhoto = viewedUser?.avatar
   const userName = viewedUser?.name
   const userSecondName = viewedUser?.secondName
   const userLogin = '@' + viewedUser?.login
+  const userPhoto = viewedUser?.avatar
   const userNumber = viewedUser?.number || 'number'
+  const isOnline = viewedUser?.isOnline
 
+  // Открыть фото пользователя
   const viewUserPhoto = () => {
     setIsPopupPhoto(true)
   }
 
+  // Закрыть фото пользователя
   const closeUserPhoto = () => {
     setIsPopupPhoto(false)
   }
@@ -95,13 +102,6 @@ const UserPage: React.FC = () => {
             <p>{userLogin}</p>
           </div>
           <CopyBtn id="login" userLogin={userLogin} />
-
-          {/* <div className={styles.userCopyInfoBtn}>
-            <FaCopy onClick={() => copyTextToClipboard(userLogin)} />
-          </div>
-          <div className={styles.bubble}>
-            {'login' + ' copied'}
-          </div> */}
         </div>
         <div className={styles.userFullInfoContainer}>
           <div className={styles.userInfoList}>
@@ -109,9 +109,6 @@ const UserPage: React.FC = () => {
             <p>8-977-777-77-77</p>
           </div>
           <CopyBtn id="number" userNumber={userNumber} />
-          {/* <div className={styles.userCopyInfoBtn}>
-            <FaCopy onClick={() => copyTextToClipboard(userNumber)} />
-          </div> */}
         </div>
       </div>
     </div>

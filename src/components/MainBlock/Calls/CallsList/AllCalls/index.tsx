@@ -2,10 +2,11 @@ import { FaUser, FaCircle } from 'react-icons/fa'
 import Image from 'next/image'
 import { useMessenger } from '@/src/providers/useMessenger'
 import { HumansTypes } from '@/src/info/humans-array'
+
 import styles from './styles.module.scss'
 
 interface IisMissedButton {
-  isMissedButton: boolean;
+  isMissedButton: boolean
 }
 
 const AllCalls: React.FC<IisMissedButton> = ({ isMissedButton }) => {
@@ -40,7 +41,6 @@ const AllCalls: React.FC<IisMissedButton> = ({ isMissedButton }) => {
                 <div className={styles.userName}>
                   <h2 className={styles.userNameHeading}>{human.name}</h2>
                   <h3 className={styles.userNameAdditionalInfo}>
-                    {/* {`${'Был(-а) в сети...'}`} */}
                     {human.calls.call && human.calls.callDuration}
                   </h3>
                 </div>

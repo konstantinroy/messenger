@@ -1,15 +1,16 @@
 import Dialog from './Dialog/index'
-import { HumansTypes } from '../../../../info/humans-array'
+import { HumansTypes } from '@/src/info/humans-array'
 import { useMessenger } from '@/src/providers/useMessenger'
 
 import styles from './styles.module.scss'
 
 const DialogsBlock: React.FC = () => {
   const { humansArray } = useMessenger()
+  const data = [...humansArray]
 
   return (
     <div className={styles.dialogs}>
-      {humansArray?.map((human: HumansTypes) => (
+      {data?.map((human: HumansTypes) => (
         <Dialog
           key={human.id as string}
           id={human.id}

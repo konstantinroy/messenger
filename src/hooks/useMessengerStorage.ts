@@ -1,4 +1,5 @@
 'use client'
+
 import { useState, useEffect, useCallback } from 'react'
 import { SidebarButtons } from '@/src/info/sidebar-buttons-array'
 import { ISidebarButtons } from '@/src/info/sidebar-buttons-array'
@@ -8,18 +9,21 @@ import { MessagesList } from '@/src/info/messages-list'
 import { IMessagesList } from '@/src/info/messages-list'
 
 export const useMessengerStorage = () => {
+  // Массив сообщений
   const [messagesList, setMessagesList] =
     useState<IMessagesList[]>(MessagesList)
+  // Массив друзей
   const [humansArray, setHumansArray] = useState<HumansTypes[]>(Humans)
-
+  // Массив кнопок сайдбара
   const [sidebarButtons, setSidebarButtons] =
     useState<ISidebarButtons[]>(SidebarButtons)
-
-  const [activeButton, setActiveButton] = useState<ISidebarButtons | null>(
-    null,
-  )
+  // Активная кнопка сайдбара
+  const [activeButton, setActiveButton] = useState<ISidebarButtons | null>(null)
+  // Id просматриваемого пользователя
   const [viewedUserId, setViewedUserId] = useState<string | null>(null)
+  // Id пользователя в открытом диалоге
   const [viewedDialogId, setViewedDialogId] = useState<string | null>(null)
+  // Состояние открытия диалога
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false)
 
   // Функция кнопок сайдбара
@@ -54,7 +58,6 @@ export const useMessengerStorage = () => {
     const foundButton = sidebarButtons.find((button) => button.active === true)
     setActiveButton(foundButton || null)
   }, [sidebarButtons, isDialogOpen])
-  // console.log(viewedId)
 
   return {
     messagesList,

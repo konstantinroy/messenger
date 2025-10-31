@@ -1,13 +1,14 @@
 'use client'
+
 import { useContext } from 'react'
 import { FaSun } from 'react-icons/fa6'
 import { TbMessage2Filled } from 'react-icons/tb'
-
 import { ThemeContext } from 'src/providers/ThemeProvider'
 import SidebarButton from './SidebarButton/index'
 import { ISidebarButtons } from '../../info/sidebar-buttons-array'
-import styles from './styles.module.scss'
 import { useMessenger } from '@/src/providers/useMessenger'
+
+import styles from './styles.module.scss'
 
 const Sidebar = () => {
   const { sidebarButtons } = useMessenger()
@@ -17,7 +18,7 @@ const Sidebar = () => {
     setTheme: () => {},
   }
   const toggleTheme = theme === 'light' ? 'dark' : 'light'
-  
+
   return (
     <div className={styles.sidebar}>
       <div className={styles.sidebarLogo}>

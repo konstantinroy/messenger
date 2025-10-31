@@ -7,13 +7,16 @@ import styles from './styles.module.scss'
 
 const FriendsList: React.FC = () => {
   const { humansArray, openUserPageHandler } = useMessenger()
+  const data = [...humansArray]
 
   return (
     <div className={styles.friendsList}>
-      {humansArray?.map((human: HumansTypes) => (
+      {data?.map((human: HumansTypes) => (
         <div key={human.id} className={styles.friendBlock}>
-          <div className={styles.userPhoto} 
-            onClick={() => openUserPageHandler(human.id)}>
+          <div
+            className={styles.userPhoto}
+            onClick={() => openUserPageHandler(human.id)}
+          >
             <div className={styles.userPhotoImg}>
               {human.avatar ? (
                 <Image
