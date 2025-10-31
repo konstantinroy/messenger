@@ -1,6 +1,6 @@
 import { FaSearch, FaPhoneAlt } from 'react-icons/fa'
 import { BsThreeDotsVertical } from 'react-icons/bs'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useMessenger } from '@/src/providers/useMessenger'
 import { MessagesList } from '@/src/info/messages-list'
 import { IMessagesList } from '@/src/info/messages-list'
@@ -8,29 +8,34 @@ import { IMessagesList } from '@/src/info/messages-list'
 import styles from './styles.module.scss'
 
 const HeaderActions = () => {
+  // Текст поля ввода
   const [searchTerm, setSearchTerm] = useState<string>('')
+  // Состояние включения поиска сообщений
   const [isSearch, setIsSearch] = useState(false)
+
   const { setMessagesList } = useMessenger()
 
+  // Функция включения-выключения поиска
   const searchOnOff = () => {
     setIsSearch((prevState) => !prevState)
   }
 
-  const messagesFilter = (
-    searchText: string,
-    data: IMessagesList[],
-  ): IMessagesList[] => {
-    if (searchText === '') {
-      return data
-    }
+  // Функция поиска сообщений
+  const messagesFilter = useCallback(
+    (searchText: string, data: IMessagesList[]): IMessagesList[] => {
+      if (searchText === '') {
+        return data
+      }
 
-    return data.filter((item) => {
-      const searchTextLower = searchText.toLowerCase()
-      const messageLower = item.message.toLowerCase()
+      return data.filter((item) => {
+        const searchTextLower = searchText.toLowerCase()
+        const messageLower = item.message.toLowerCase()
 
-      return messageLower.includes(searchTextLower)
-    })
-  }
+        return messageLower.includes(searchTextLower)
+      })
+    },
+    [],
+  )
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout

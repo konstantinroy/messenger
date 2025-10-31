@@ -10,12 +10,13 @@ const Messenger = () => {
   const { activeButton, isDialogOpen } = useMessenger()
   const title = activeButton?.title === 'Сообщения'
 
+  // Стили Messenger Block
+  const MessengerBlockStyles = `${styles.messengerBlock} ${
+    isDialogOpen && styles.messengerBlockActive
+  }`
+
   return (
-    <div
-      className={`${styles.messengerBlock} ${
-        isDialogOpen && styles.messengerBlockActive
-      }`}
-    >
+    <div className={MessengerBlockStyles}>
       <UserPage />
       <MessengerList />
 

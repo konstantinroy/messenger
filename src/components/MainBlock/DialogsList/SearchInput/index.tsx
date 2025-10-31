@@ -1,5 +1,5 @@
 import { FaSearch } from 'react-icons/fa'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useMessenger } from '@/src/providers/useMessenger'
 import { Humans } from '@/src/info/humans-array'
 import { HumansTypes } from '@/src/info/humans-array'
@@ -12,25 +12,25 @@ const SearchInput = () => {
 
   const { setHumansArray } = useMessenger()
 
-  const dialogsFilter = (
-    searchText: string,
-    data: HumansTypes[],
-  ): HumansTypes[] => {
-    if (searchText === '') {
-      return data
-    }
+  const dialogsFilter = useCallback(
+    (searchText: string, data: HumansTypes[]): HumansTypes[] => {
+      if (searchText === '') {
+        return data
+      }
 
-    return data.filter((item) => {
-      const searchTextLower = searchText.toLowerCase()
-      const nameLower = item.name.toLowerCase()
-      const secondNameLower = item.secondName.toLowerCase()
+      return data.filter((item) => {
+        const searchTextLower = searchText.toLowerCase()
+        const nameLower = item.name.toLowerCase()
+        const secondNameLower = item.secondName.toLowerCase()
 
-      return (
-        nameLower.includes(searchTextLower) ||
-        secondNameLower.includes(searchTextLower)
-      )
-    })
-  }
+        return (
+          nameLower.includes(searchTextLower) ||
+          secondNameLower.includes(searchTextLower)
+        )
+      })
+    },
+    [],
+  )
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout

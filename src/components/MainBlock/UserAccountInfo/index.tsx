@@ -1,7 +1,7 @@
 import { IoMdClose } from 'react-icons/io'
 import { BsThreeDots } from 'react-icons/bs'
 import { FaCircle } from 'react-icons/fa'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import Image from 'next/image'
 import RoyAvatar from '@/public/avatars/Roy.jpeg'
 import { USER_INFO_OBJECT } from 'src/info/user-info-object'
@@ -17,19 +17,19 @@ const UserInfo = () => {
   const isOnline = USER_INFO_OBJECT.isOnline
 
   // Функция открытия попапа фото пользователя
-  const viewUserPhoto = () => {
+  const viewUserPhoto = useCallback(() => {
     setIsPopupPhoto(true)
-  }
+  }, [])
 
   // Функция закрытия попапа фото пользователя
-  const closeUserPhoto = () => {
+  const closeUserPhoto = useCallback(() => {
     setIsPopupPhoto(false)
-  }
+  }, [])
 
   // Функция открытия-закрытия попапа настроек пользователя
-  const openCloseDotsPopup = () => {
+  const openCloseDotsPopup = useCallback(() => {
     setIsDotsPopup((prevState) => !prevState)
-  }
+  }, [])
 
   return (
     <div className={styles.userInfo}>

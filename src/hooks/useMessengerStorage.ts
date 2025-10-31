@@ -42,17 +42,17 @@ export const useMessengerStorage = () => {
   }, [])
 
   // Функция открытия страницы пользователя
-  const openUserPageHandler = (id: string) => {
+  const openUserPageHandler = useCallback((id: string) => {
     setViewedUserId(id)
     setIsDialogOpen(false)
-  }
+  }, [])
 
   // Функция открытия диалога
-  const openDialogHandler = (id: string) => {
+  const openDialogHandler = useCallback((id: string) => {
     setIsDialogOpen(true)
     setViewedUserId(null)
     setViewedDialogId(id)
-  }
+  }, [])
 
   useEffect(() => {
     const foundButton = sidebarButtons.find((button) => button.active === true)

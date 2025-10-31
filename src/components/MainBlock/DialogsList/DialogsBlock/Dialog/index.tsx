@@ -1,5 +1,6 @@
 import { FaUser, FaCircle } from 'react-icons/fa'
 import { BsCheckAll } from 'react-icons/bs'
+import { useCallback } from 'react'
 import Image from 'next/image'
 import { useMessenger } from '@/src/providers/useMessenger'
 import { HumansTypes } from '@/src/info/humans-array'
@@ -22,12 +23,12 @@ const Dialog: React.FC<HumansTypes> = ({
   const lastMessage = messagesList.slice(-1)[0].message
 
   // Функция ограничения количества символов
-  const truncateString = (str: string, maxLenght: number) => {
+  const truncateString = useCallback((str: string, maxLenght: number) => {
     if (str.length <= maxLenght) {
       return str
     }
     return str.slice(0, maxLenght) + '...'
-  }
+  }, [])
 
   // Стили активного диалога
   const dialogBlockActiveStyle =

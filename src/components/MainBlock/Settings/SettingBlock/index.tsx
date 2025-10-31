@@ -1,5 +1,5 @@
 import { FaCheck } from 'react-icons/fa'
-import { Dispatch, SetStateAction, useState } from 'react'
+import { Dispatch, SetStateAction, useState, useCallback } from 'react'
 import { IUserInfo } from 'src/info/user-info-object'
 
 import styles from './styles.module.scss'
@@ -25,27 +25,33 @@ const SettingBlock: React.FC<Props> = ({
   const [settingNewText, setSettingNewText] = useState<string>('')
 
   // Изменение текста поля ввода
-  const handleEditSettingText = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSettingNewText(e.target.value)
-  }
+  const handleEditSettingText = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setSettingNewText(e.target.value)
+    },
+    [],
+  )
 
-  // Добавление нового значения в объект
-  const editSettingValue = (clickedKey: string, newValue: string) => {
-    if (newValue === '') {
-      alert('Поле ввода не может быть пустым')
-      return
-    }
-    const user = { ...userInfo }
-    if (user.hasOwnProperty(clickedKey)) {
-      const updatedUser = {
-        ...user,
-        [clickedKey]: newValue,
+  // Функция добавления нового значения в объект
+  const editSettingValue = useCallback(
+    (clickedKey: string, newValue: string) => {
+      if (newValue === '') {
+        alert('Поле ввода не может быть пустым')
+        return
       }
-      setUserInfo(updatedUser)
-      setSettingNewText('')
-      setCurrentEditingKey(null)
-    }
-  }
+      const user = { ...userInfo }
+      if (user.hasOwnProperty(clickedKey)) {
+        const updatedUser = {
+          ...user,
+          [clickedKey]: newValue,
+        }
+        setUserInfo(updatedUser)
+        setSettingNewText('')
+        setCurrentEditingKey(null)
+      }
+    },
+    [],
+  )
 
   // Стили блока информации
   const settingBlockStyles = `${
