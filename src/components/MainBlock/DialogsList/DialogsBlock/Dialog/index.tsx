@@ -15,7 +15,8 @@ const Dialog: React.FC<HumansTypes> = ({
   timeOfLastMessage,
   newMessageQty,
 }) => {
-  const { messagesList, openDialogHandler, viewedDialogId, isDialogOpen } = useMessenger()
+  const { messagesList, openDialogHandler, viewedDialogId, isDialogOpen } =
+    useMessenger()
   const lastMessage = messagesList.slice(-1)[0].message
   // const dialogBlockActiveStyle = newMessageQty > 0 && styles.dialogBlockActive
 
@@ -23,9 +24,9 @@ const Dialog: React.FC<HumansTypes> = ({
     if (str.length <= maxLenght) {
       return str
     }
-    return str.slice(0, maxLenght) + '...' 
+    return str.slice(0, maxLenght) + '...'
   }
-  
+
   const dialogBlockActiveStyle =
     (id === viewedDialogId && isDialogOpen && styles.dialogOpened) ||
     (newMessageQty > 0 && styles.dialogBlockActive)
